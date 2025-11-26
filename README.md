@@ -7,7 +7,8 @@ Depois será solicitado para criar uma nova senha.
 
 Após isso, utilize os seguintes comandos:
 
-Para habilitar o SNMP
+Para habilitar o SNMP 
+
 /snmp set enable=yes
 
 Para definir a community
@@ -34,7 +35,9 @@ Para deixar rodando o monitoramento e comparar dados
 Na pasta raiz do projeto executar:
 
 python -m venv venv
+
 venv\Scripts\activate
+
 python -m pip install -r backend/requirements.txt<br><br>
 
 
