@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Mikrotik SNMP Monitor - Full</title>
+<link rel="stylesheet" href="style.css">
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/4.7.1/socket.io.min.js"></script>
+</head>
+<body>
+  <div class="container">
+    <h1>Mikrotik Bandwidth Monitor</h1>
+    <div class="topline">
+      <div>Router IP: <span id="router-ip">-</span></div>
+      <div>Status: <span id="connection-status" class="status-disconnected">Desconectado</span></div>
+      <div>Última atualização: <span id="last-update">-</span></div>
+    </div>
+    <div class="topline">
+      <div>Interface: <span id="current-if">Selecione uma interface</span></div>
+    </div>
+
+    <div class="controls">
+      <label for="iface">Interface</label>
+      <select id="iface"></select>
+      <button id="pause">Pausar</button>
+    </div>
+
+    <div class="chart-wrap">
+      <canvas id="bwChart" height="180"></canvas>
+    </div>
+
+    <div class="metrics">
+      <div>CPU: <span id="cpu">-</span>%</div>
+      <div>Mem: <span id="mem">-</span>%</div>
+      <div>Ping: <span id="ping">-</span> ms</div>
+    </div>
+
+    <div class="stats-grid">
+      <div class="stats-column">
+        <h3>Valores Atuais</h3>
+        <div>Rx: <span id="current-rx">0</span> Kbps (<span id="current-rx-mbps">0</span> Mbps)</div>
+        <div>Tx: <span id="current-tx">0</span> Kbps (<span id="current-tx-mbps">0</span> Mbps)</div>
+      </div>
+      <div class="stats-column">
+        <h3>Médias</h3>
+        <div>Rx: <span id="avg-rx">0</span> Kbps (<span id="avg-rx-mbps">0</span> Mbps)</div>
+        <div>Tx: <span id="avg-tx">0</span> Kbps (<span id="avg-tx-mbps">0</span> Mbps)</div>
+      </div>
+      <div class="stats-column">
+        <h3>Máximos</h3>
+        <div>Rx: <span id="max-rx">0</span> Kbps (<span id="max-rx-mbps">0</span> Mbps)</div>
+        <div>Tx: <span id="max-tx">0</span> Kbps (<span id="max-tx-mbps">0</span> Mbps)</div>
+      </div>
+    </div>
+  </div>
+
+<script src="app.js"></script>
+</body>
+</html>
